@@ -1,19 +1,8 @@
 library(feasiblesads)
 
-p_lookup <- function(k, s, n) {
-  this_p = ps[s - 1, n - (s * k) + 1]
-  return(gmp::as.bigz(this_p))
-}
 
 max_s = 5
 max_n = 10
-
-ps <- matrix(ncol = max_n + 1, nrow = max_s)
-colnames(ps) <- c(0:max_n)
-ps[1, ] = 1
-ps[, "0"] = 1
-ps[, "1"] = 1
-kmax = fill_ks(max_s = max_s, max_n = max_n)
 
 ps <- matrix(ncol = max_n + 1, nrow = max_s)
 colnames(ps) <- c(0:max_n)
