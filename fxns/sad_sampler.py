@@ -28,15 +28,15 @@ def send_gnome(s, n, ps, ks):
         if species_slot == 0:
             
             # first species value is a boundary case
-            # for the first, the values of n range from 1 to ks[s, n + 1]
+            # for the first, the values of n range from 1 to ks[s -1, n]
             
-            ns = list(range(1,ks[slots_remaining - 1, n_remaining]))
+            ns = list(range(1,ks[slots_remaining - 1, n_remaining] + 1))
             
         else: 
                 
-            # for the rest, the values of n range from 0 to ks[slots_remaining, n_remaining + 1]
+            # for the rest, the values of n range from 0 to ks[slots_remaining - 1, n_remaining]
 
-            ns = list(range(0, ks[slots_remaining - 1, n_remaining]))
+            ns = list(range(0, ks[slots_remaining - 1, n_remaining] + 1))
         
         # the probability of selecting each n is proportional the the number of partitions possible were you to choose that n, divided by the total number of possible partitions across all possible choices for n.
         n_parts = ps[slots_remaining - 2, ([n_remaining - (x*slots_remaining) for x in ns])]
